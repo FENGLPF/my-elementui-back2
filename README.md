@@ -1,21 +1,18 @@
 # my-elementui-back2
 
-> A Vue.js project
+> 基于ElementUI的后台管理模板
 
-## Build Setup
+## 实现功能
 
 ``` bash
-# install dependencies
-npm install
+2022-01-25
+1.顶部导航栏+左侧菜单栏
+2.tag多标签页：
+2-1.点击左侧菜单添加tag，主动关闭tag
+2-2.右键关闭tag
+3.菜单缓存功能：keep-alive
+4.新手引导功能：
+4-1.IntroJS:有bug，引导动画会遮盖原本内容，待解决
+4-2.VueGuide：有warn，待解决
+5.Echarts模板
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
