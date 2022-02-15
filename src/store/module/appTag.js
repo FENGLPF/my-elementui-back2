@@ -1,6 +1,10 @@
 const state = ({
   headTagList: [],
-  tagList:[]
+  tagList:[],
+  /**
+   * 菜单是否收起
+   */
+  foldAside: true
 })
 
 const getters = {
@@ -50,6 +54,9 @@ const mutations = {
       state.headTagList.splice(i, 1)
       state.tagList.splice(i,1)
     }
+  },
+  foldOrOpenAside(state,data) {
+    state.foldAside = data
   }
 }
 

@@ -26,18 +26,13 @@
 <!--          </el-menu-item-group>-->
 <!--        </el-submenu>-->
 
-        <!--          <div v-show="item.icon=='el-icon-s-home'" style="float: right" class="header-title" @click="foldOrOpen">-->
-        <!--            <a class="el-icon-s-fold" v-if="foldAside" title="折叠侧边栏" />-->
-        <!--            <a class="el-icon-s-unfold" v-else title="展开侧边栏" />-->
-        <!--          </div>-->
-
-        <!--按菜单顺序排序 -->
-        <div v-for="item in menu">
-          <el-menu-item v-if="item.children.length==0" :index="item.name" :key="item.path" @click="clickMenu(item)">
+        <!--按菜单顺序排序(菜单收起展开有bug) -->
+        <template v-for="(item,index) in menu">
+          <el-menu-item v-if="item.children.length==0" :index="item.name" :key="index" @click="clickMenu(item)">
             <i :class="item.icon"></i>
             <span slot="title">{{item.label}}</span>
           </el-menu-item>
-          <el-submenu v-if="item.children.length>0" :index="item.label" :key="index">
+          <el-submenu v-if="item.children.length>0" :index="item.name" :key="index">
             <template slot="title">
               <i :class="item.icon"></i>
               <span slot="title">{{item.label}}</span>
@@ -49,7 +44,7 @@
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-        </div>
+        </template>
       </el-menu>
     </el-scrollbar>
 
@@ -58,7 +53,7 @@
 </template>
 
 <script>
-
+import { mapState } from 'vuex';
 export default {
   name: "Aside",
   data() {
@@ -130,7 +125,6 @@ export default {
           path: ''
         },
       ],
-      foldAside: true
     };
   },
   computed: {
@@ -140,6 +134,9 @@ export default {
     hasChildren() {
       return this.menu.filter(item => item.children.length>0)
     },
+    ...mapState({
+      foldAside: state => state.appTag.foldAside
+    })
   },
   created() {
     // this.menu=JSON.parse(localStorage.getItem('menu'))
