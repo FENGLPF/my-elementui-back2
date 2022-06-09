@@ -28,11 +28,11 @@
 
         <!--按菜单顺序排序(菜单收起展开有bug) -->
         <template v-for="(item,index) in menu">
-          <el-menu-item v-if="item.children.length==0" :index="item.name" :key="index" @click="clickMenu(item)">
+          <el-menu-item v-if="item.children.length==0" :index="item.name" :key="item.label" @click="clickMenu(item)">
             <i :class="item.icon"></i>
             <span slot="title">{{item.label}}</span>
           </el-menu-item>
-          <el-submenu v-if="item.children.length>0" :index="item.name" :key="index">
+          <el-submenu v-if="item.children.length>0" :index="item.label" :key="index">
             <template slot="title">
               <i :class="item.icon"></i>
               <span slot="title">{{item.label}}</span>
@@ -123,6 +123,13 @@ export default {
           label: '新手引导',
           name: '',
           path: ''
+        },
+        {
+          children: [],
+          icon: 'el-icon-s-menu',
+          label: '悬浮按钮',
+          name: 'Suspension',
+          path: '/Suspension'
         },
       ],
     };

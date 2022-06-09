@@ -14,7 +14,7 @@ import Echarts from "@/components/echarts/Echarts";
 import Icons from "@/components/icon/Icons";
 import IntroStep from "@/components/intro/IntroStep";
 import GuideStep from "@/components/intro/GuideStep";
-
+import Suspension from "@/components/suspension/Suspension";
 
 
 Vue.use(Router)
@@ -96,6 +96,11 @@ export default new Router({
           path: '/GuideStep',
           name: 'GuideStep',
           component: GuideStep
+        },
+        {
+          path: '/Suspension',
+          name: 'Suspension',
+          component: Suspension
         }
       ]
     }
